@@ -1,0 +1,50 @@
+Options +FollowSymLinks -MultiViews
+Header set Access-Control-Allow-Origin *
+RewriteEngine On
+
+# stage 1.1
+RewriteRule ^(bin+)/()$ bin/ [QSA,L]
+RewriteRule ^(bin+)$ bin/ [QSA,L]
+# stage 1.2
+RewriteRule ^(bin+)/([^/]+)/()$ bin/$2 [QSA,L]
+RewriteRule ^(bin+)/([^/]+)$ bin/$2 [QSA,L]
+
+# stage 9
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6&k7=$7&k8=$8&k9=$9 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6&k7=$7&k8=$8&k9=$9 [QSA,L]
+
+# stage 8
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6&k7=$7&k8=$8 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6&k7=$7&k8=$8 [QSA,L]
+
+# stage 7
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6&k7=$7 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6&k7=$7 [QSA,L]
+
+# stage 6
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5&k6=$6 [QSA,L]
+
+# stage 5
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4&k5=$5 [QSA,L]
+
+# stage 4
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2&k3=$3&k4=$4 [QSA,L]
+
+# stage 3
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2&k3=$3 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2&k3=$3 [QSA,L]
+
+# stage 2
+RewriteRule ^([^/]+)/([^/]+)/()$ bin/run.php?k1=$1&k2=$2 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)$ bin/run.php?k1=$1&k2=$2 [QSA,L]
+
+# stage 1
+RewriteRule ^([^/]+)/()$ bin/run.php?k1=$1 [QSA,L]
+RewriteRule ^([^/]+)$ bin/run.php?k1=$1 [QSA,L]
+
+# stage 1
+RewriteRule ^()$ bin/run.php [QSA,L]
+
